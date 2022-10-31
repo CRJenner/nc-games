@@ -12,11 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.profile {
+  border-style: solid;
+  border: 5%;
+  border-color: black;
+}
 .profile_avatar {
   border-style: solid;
   border: 5%;
   border-color: black;
+  position: absolute;
 }
 .App-header {
   background-color: #282c34;

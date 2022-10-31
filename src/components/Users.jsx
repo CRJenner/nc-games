@@ -4,21 +4,27 @@ import Profile from "./Profile";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  console.log(users);
   useEffect(() => {
-    fetchUsers().then(
-      (usersFromApi) => {
-        usersFromApi.users.map((user) => {
-          return setUsers(user);
-          //console.log(profile);
-        });
-      },
-      [users]
-    );
-  });
+    fetchUsers().then((users) => {
+      setUsers(users.users);
+      //console.log(profile);
+    });
+  }, [users]);
   return (
     <div className="profile_avatar">
-      <h2>{users.username}</h2>
-      <img src={users.avatar_url} alt="Profile avatar" />
+      {users.map((user) => {
+        return (
+          <div>
+            <h2>{user.username}</h2>
+            <img
+              src={user.avatar_url}
+              alt="profile avatar"
+              classname="profile_avatar"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 
