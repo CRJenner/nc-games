@@ -13,6 +13,11 @@
   }
 }
 
+.profile_avatar {
+  border-style: solid;
+  border: 5%;
+  border-color: black;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
