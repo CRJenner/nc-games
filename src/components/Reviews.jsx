@@ -8,8 +8,13 @@ const Reviews = () => {
 
   useEffect(() => {
     setIsLoading(true);
+<<<<<<< HEAD
     fetchReviews().then(({ reviews }) => {
       setReviews(reviews);
+=======
+    fetchReviews().then((reviews) => {
+      setReviews(reviews.reviews);
+>>>>>>> f1b6a6cbc3f0f11df5e1da55373ea4836b1a9aad
       setIsLoading(false);
     });
   }, [setReviews]);
