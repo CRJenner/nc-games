@@ -6,4 +6,12 @@ function fetchUsers() {
   );
 }
 
-export { fetchUsers };
+function fetchReviews() {
+  return fetch(
+    `https://chloes-project-nc-games.herokuapp.com/api/reviews`
+  ).then((response) => {
+    return response.json();
+  });
+}
+
+export { fetchUsers, fetchReviews };

@@ -1,8 +1,8 @@
 import "./App.css";
 import Header from "./components/Header";
-import Welcome from "./components/Welcome";
-import Users from "./components/Users";
-import Home from "./components/Home";
+// import Welcome from "./components/Welcome";
+// import Users from "./components/Users";
+import Reviews from "./components/Reviews";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,10 +10,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Welcome />
-        <Users />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Reviews />} />
         </Routes>
       </div>
     </BrowserRouter>

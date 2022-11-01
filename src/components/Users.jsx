@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
   useEffect(() => {
     fetchUsers().then((users) => {
       setUsers(users.users);
@@ -13,6 +12,7 @@ const Users = () => {
   }, [users]);
 
   function handleChange() {
+    console.log(users);
     setUsers(users.users);
   }
 
@@ -20,13 +20,12 @@ const Users = () => {
     <div className="grid-container">
       {users.map((user) => {
         return (
-          <Link to="/home">
+          <Link to="/">
             <div onClick={handleChange} className="grid-item">
               <h2>{user.username}</h2>
               <img
                 src={user.avatar_url}
                 alt="profile avatar"
-                classname="profile_avatar"
                 width="100"
                 height="100"
               />
@@ -36,8 +35,6 @@ const Users = () => {
       })}
     </div>
   );
-
-  //  render each user
 };
 
 export default Users;

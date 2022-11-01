@@ -1,7 +1,7 @@
 const Welcome = () => {
   return (
     <div>
-      <h2>Welcome to game reviews, select your avatar</h2>
+      <h2>Select your avatar below:</h2>
     </div>
   );
 };
