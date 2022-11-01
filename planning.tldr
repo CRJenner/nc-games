@@ -3519,6 +3519,64 @@
               "font": "script",
               "textAlign": "middle"
             }
+          },
+          "8e9ae47b-021c-48aa-04c9-91a4341aaa0d": {
+            "id": "8e9ae47b-021c-48aa-04c9-91a4341aaa0d",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 134,
+            "point": [
+              -312.68,
+              268.64
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "black",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "points": [
+              [
+                0,
+                0,
+                0.5
+              ],
+              [
+                0,
+                0,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          },
+          "c2ab15bc-aed5-41c6-2794-e2483a6dc005": {
+            "id": "c2ab15bc-aed5-41c6-2794-e2483a6dc005",
+            "type": "sticky",
+            "name": "Sticky",
+            "parentId": "page",
+            "childIndex": 135,
+            "point": [
+              -400.68000000000006,
+              147.04
+            ],
+            "size": [
+              200,
+              272
+            ],
+            "text": "Todo:\n Make click function on users.\n Connect user to home with avatar in box\n Basic make of main page\n Add nav bar\n show all games",
+            "rotation": 0,
+            "style": {
+              "color": "black",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "font": "script",
+              "textAlign": "middle"
+            }
           }
         },
         "bindings": {

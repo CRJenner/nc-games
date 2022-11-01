@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchUsers } from "../api";
-import Profile from "./Profile";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -11,18 +11,27 @@ const Users = () => {
       //console.log(profile);
     });
   }, [users]);
+
+  function handleChange() {
+    setUsers(users.users);
+  }
+
   return (
-    <div className="profile_avatar">
+    <div className="grid-container">
       {users.map((user) => {
         return (
-          <div>
-            <h2>{user.username}</h2>
-            <img
-              src={user.avatar_url}
-              alt="profile avatar"
-              classname="profile_avatar"
-            />
-          </div>
+          <Link to="/home">
+            <div onClick={handleChange} className="grid-item">
+              <h2>{user.username}</h2>
+              <img
+                src={user.avatar_url}
+                alt="profile avatar"
+                classname="profile_avatar"
+                width="100"
+                height="100"
+              />
+            </div>
+          </Link>
         );
       })}
     </div>

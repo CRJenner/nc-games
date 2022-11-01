@@ -12,16 +12,24 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.profile {
-  border-style: solid;
-  border: 5%;
-  border-color: black;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.grid-item {
+  box-sizing: border-box;
+  width: 100%;
+  border: solid #5b6dcd 10px;
+  padding: 5px;
+  display: block;
 }
 .profile_avatar {
   border-style: solid;
   border: 5%;
   border-color: black;
   position: absolute;
+  overflow: hidden;
 }
 .App-header {
   background-color: #282c34;
