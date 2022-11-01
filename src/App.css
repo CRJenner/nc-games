@@ -61,15 +61,34 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.category-card {
+  list-style: none;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  box-shadow: inset;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 50px;
+  margin: 50px;
+}
+
+.category-details {
+  text-decoration-color: black;
+  font-family: "Carter One", cursive;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 100;
+  transition: 0.5s ease;
+  background-color: rgb(146, 248, 149);
 }

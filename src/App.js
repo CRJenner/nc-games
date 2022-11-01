@@ -4,16 +4,31 @@ import Header from "./components/Header";
 // import Users from "./components/Users";
 import Reviews from "./components/Reviews";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import AllCategories from "./components/AllCategories";
+import CategoryReview from "./components/CategoryReview";
 
 function App() {
+  const [reviews, setReviews] = useState([]);
+
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Nav />
+        <Navbar />
         <Routes>
-          <Route path="/" element={<Reviews />} />
+          <Route
+            path="/"
+            element={<Reviews setReviews={setReviews} reviews={reviews} />}
+          />
+          <Route path="/categories" element={<AllCategories />} />
+          <Route
+            path="/categories/:category"
+            element={
+              <CategoryReview setReviews={setReviews} reviews={reviews} />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

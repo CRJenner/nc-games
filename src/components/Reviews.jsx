@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchReviews } from "../api";
 import Review from "./Review";
 
-const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
+const Reviews = ({ reviews, setReviews }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
