@@ -1,16 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Pacifico&family=Quicksand&family=Roboto:wght@500&family=Secular+One&display=swap");
+
 .App {
   text-align: center;
+  font-family: "Carter One", cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.review-card {
+  list-style: none;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgb(244, 232, 254);
+  border-radius: 1ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.review-info {
+  font-family: "Carter One", cursive;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  border-bottom: double;
+  border-top: 1px solid grey;
+  border-top: double;
+  color: rgb(32, 10, 54);
 }
 
 .grid-container {

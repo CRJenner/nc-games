@@ -1,11 +1,11 @@
 const ReviewCard = ({ review }) => {
   const {
-    designer,
+    //designer,
     owner,
-    review_body,
-    review_img_url,
+    // review_body,
+    //review_img_url,
     title,
-    category,
+    //category,
     created_at,
     review_id,
     comment_count,
@@ -13,12 +13,12 @@ const ReviewCard = ({ review }) => {
 
   return (
     <li key={review_id} className="review-card">
-      <div className="review-details">
+      <div className="review-info">
+        <h2>{title}</h2>
         <p>Comments: {comment_count}</p>
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
       </div>
-      <h2>{title}</h2>
     </li>
   );
 };

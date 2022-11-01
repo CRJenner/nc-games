@@ -4,13 +4,17 @@ import Review from "./Review";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchReviews().then((reviews) => {
-      console.log(reviews);
-      return setReviews(reviews.reviews);
+      setReviews(reviews.reviews);
+      setIsLoading(false);
     });
   }, [setReviews]);
+
+  if (isLoading) return <p>...Loading...</p>;
 
   return (
     <div className="review-container">
