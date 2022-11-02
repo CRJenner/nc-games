@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Votes from "./Votes";
 
 const Review = ({ review }) => {
   const {
@@ -11,6 +12,7 @@ const Review = ({ review }) => {
     created_at,
     review_id,
     comment_count,
+    votes,
   } = review;
 
   return (
@@ -21,6 +23,8 @@ const Review = ({ review }) => {
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
       </div>
+      <Votes review={review} />
+
       <Link to={`/reviews/${review_id}`}>
         <button className="review-button">Read this review</button>
       </Link>

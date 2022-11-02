@@ -116,3 +116,12 @@
   transition: 0.5s ease;
   background-color: rgb(146, 248, 149);
 }
+
+.vote_button {
+  font-size: 250%;
+  text-align: center;
+  border: solid 1px black;
+  background-color: rgb(241, 163, 28);
+  margin: 1%;
+  width: 50px;
+}
