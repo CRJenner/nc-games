@@ -37,7 +37,7 @@ const Review = ({ review }) => {
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
       </div>
-      <div className="vote">
+      <div className="voting">
         <p>Votes: {votes + voteIncrement}</p>
         <button className="vote_button" onClick={HandleIncrement}>
           +
