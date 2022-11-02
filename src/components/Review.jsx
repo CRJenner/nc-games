@@ -12,7 +12,6 @@ const Review = ({ review }) => {
     created_at,
     review_id,
     comment_count,
-    votes,
   } = review;
 
   return (
