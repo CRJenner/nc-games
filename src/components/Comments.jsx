@@ -17,22 +17,22 @@ const Comments = ({ review_id }) => {
   if (isLoading) return <p>...Loading...</p>;
 
   return (
-    <div>
+    <div className="comment_list">
       <h4>A collection of Comments</h4>
-      <div>
-        {comments.map((comment) => {
-          return (
-            <li key={comment.comment_id} className="Comment_Card">
-              <div className="comment_info">
-                <p>Posted by: {comment.owner}</p>
-                <p>at {comment.created_at}</p>
+      {comments.map((comment) => {
+        return (
+          <li key={comment.comment_id} className="Comment_Card">
+            <div className="comment_info">
+              <p>Comment posted: {comment.body}</p>
+              <div>
+                <p>Posted by: {comment.author}</p>
               </div>
-              <p>{comment.body}</p>
-              <p>Votes: {comment.votes}</p>
-            </li>
-          );
-        })}
-      </div>
+              <p>at {comment.created_at}</p>
+            </div>
+            <p>Votes: {comment.votes}</p>
+          </li>
+        );
+      })}
     </div>
   );
 };
