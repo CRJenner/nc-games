@@ -24,6 +24,11 @@ const SingleReview = () => {
   return (
     <div className="review">
       <h2>{review.title}</h2>
+      <img
+        src={review.review_img_url}
+        alt="image of review"
+        className="review_img"
+      />
       <p>Comment count: {review.comment_count}</p>
       <p>Comments: {review.review_body}</p>
       <p>Posted by {review.owner} </p>

@@ -40,6 +40,21 @@
   border-top: double;
   color: rgb(32, 10, 54);
 }
+.review_img {
+  max-width: 50%;
+  height: auto;
+}
+.review {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  height: 10%;
+  background-color: rgb(248, 228, 116);
+  padding: 30px;
+  border-radius: 10pt;
+  border: #282c34 solid 5px;
+}
 
 .grid-container {
   display: grid;

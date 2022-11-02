@@ -5,7 +5,7 @@ const Review = ({ review }) => {
     //designer,
     owner,
     // review_body,
-    review_img_url,
+    //  review_img_url,
     title,
     //category,
     created_at,
@@ -17,7 +17,6 @@ const Review = ({ review }) => {
     <li key={review_id} className="review-card">
       <div className="review-info">
         <h2>{title}</h2>
-        <p>{review_img_url}</p>
         <p>Comments: {comment_count}</p>
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
