@@ -4,6 +4,15 @@
   text-align: center;
   font-family: "Carter One", cursive;
 }
+.review-button {
+  font-family: "Carter One", cursive;
+  font-size: large;
+  background-color: rgb(37, 2, 57);
+  color: white;
+  padding: 20px;
+  border-radius: 5pt;
+  margin-top: 20px;
+}
 
 .review-card {
   list-style: none;

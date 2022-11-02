@@ -9,6 +9,7 @@ import Reviews from "./components/Reviews";
 import Navbar from "./components/Navbar";
 import AllCategories from "./components/AllCategories";
 import CategoryReview from "./components/CategoryReview";
+import SingleReview from "./components/SingleReview";
 
 function App() {
   const [reviews, setReviews] = useState([]);
@@ -30,6 +31,7 @@ function App() {
               <CategoryReview setReviews={setReviews} reviews={reviews} />
             }
           />
+          <Route path="/reviews/:review_id" element={<SingleReview />} />
         </Routes>
       </div>
     </BrowserRouter>
