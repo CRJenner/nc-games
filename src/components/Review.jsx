@@ -1,4 +1,4 @@
-const ReviewCard = ({ review }) => {
+const Review = ({ review }) => {
   const {
     //designer,
     owner,
@@ -23,4 +23,4 @@ const ReviewCard = ({ review }) => {
   );
 };
 
-export default ReviewCard;
+export default Review;

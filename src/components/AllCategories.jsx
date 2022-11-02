@@ -16,13 +16,12 @@ function AllCategories() {
       });
   }, [setCategories]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>...Loading...</p>;
 
   return (
     <div className="category-container">
       <div className="category-list">
         {categories.map((category) => {
-          console.log(category);
           return <Category key={category.slug} category={category} />;
         })}
       </div>

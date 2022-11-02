@@ -14,12 +14,12 @@ function fetchReviews() {
   });
 }
 
-function fetchCategories() {
-  return fetch(
-    `https://chloes-project-nc-games.herokuapp.com/api/categories`
-  ).then((response) => {
-    return response.json();
-  });
-}
+// function fetchCategories() {
+//   return fetch(
+//     `https://chloes-project-nc-games.herokuapp.com/api/categories`
+//   ).then((response) => {
+//     return response.json();
+//   });
+// }
 
-export { fetchUsers, fetchReviews, fetchCategories };
+export { fetchUsers, fetchReviews };

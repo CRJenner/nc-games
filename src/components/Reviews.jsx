@@ -20,7 +20,6 @@ const Reviews = ({ reviews, setReviews }) => {
     <div className="review-container">
       <h3>Showing all Reviews</h3>
       <div className="review-list">
-        {console.log(reviews)}
         {reviews.map((review) => {
           return <Review key={review.review_id} review={review} />;
         })}

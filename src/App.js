@@ -1,10 +1,11 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+
 import Header from "./components/Header";
 // import Welcome from "./components/Welcome";
 // import Users from "./components/Users";
 import Reviews from "./components/Reviews";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Navbar from "./components/Navbar";
 import AllCategories from "./components/AllCategories";
 import CategoryReview from "./components/CategoryReview";
