@@ -17,7 +17,6 @@ const Review = ({ review }) => {
   } = review;
 
   const [voteIncrement, setVotes] = useState(0);
-  // const [err, setErr] = useState(null);
 
   const HandleIncrement = () => {
     setVotes((currentVotes) => currentVotes + 1);
