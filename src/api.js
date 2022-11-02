@@ -1,3 +1,5 @@
+import axios from "axios";
+
 function fetchUsers() {
   return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
     (response) => {
@@ -21,5 +23,11 @@ function fetchReviews() {
 //     return response.json();
 //   });
 // }
+
+const BASE_URL = `https://chloes-project-nc-games.herokuapp.com/api`;
+
+export const patchVoteCounts = async (review_id, value) => {
+  await axios.patch(`${BASE_URL}/reviews/${review_id}`, { inc_votes: value });
+};
 
 export { fetchUsers, fetchReviews };
