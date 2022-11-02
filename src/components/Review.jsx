@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Review = ({ review }) => {
   const {
     //designer,
     owner,
     // review_body,
-    //review_img_url,
+    //  review_img_url,
     title,
     //category,
     created_at,
@@ -19,6 +21,9 @@ const Review = ({ review }) => {
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
       </div>
+      <Link to={`/reviews/${review_id}`}>
+        <button className="review-button">Read this review</button>
+      </Link>
     </li>
   );
 };
