@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import * as api from "../api";
-import { useState } from "react";
+import Votes from "./Votes";
 
 const Review = ({ review }) => {
   const {
@@ -16,18 +15,6 @@ const Review = ({ review }) => {
     votes,
   } = review;
 
-  const [voteIncrement, setVotes] = useState(0);
-
-  const HandleIncrement = () => {
-    setVotes((currentVotes) => currentVotes + 1);
-    api.patchVoteCounts(review_id, 1);
-  };
-
-  const HandleDecrement = () => {
-    setVotes((currentVotes) => currentVotes - 1);
-    api.patchVoteCounts(review_id, -1);
-  };
-
   return (
     <li key={review_id} className="review-card">
       <div className="review-info">
@@ -36,15 +23,8 @@ const Review = ({ review }) => {
         <p>Posted by {owner} </p>
         <p>{created_at}</p>
       </div>
-      <div className="voting">
-        <p>Votes: {votes + voteIncrement}</p>
-        <button className="vote_button" onClick={HandleIncrement}>
-          +
-        </button>
-        <button className="vote_button" onClick={HandleDecrement}>
-          -
-        </button>
-      </div>
+      <Votes review={review} />
+
       <Link to={`/reviews/${review_id}`}>
         <button className="review-button">Read this review</button>
       </Link>
