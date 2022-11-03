@@ -1,39 +1,70 @@
 import * as api from "../api";
+import { formatDate } from "../api";
 import { useState, useEffect } from "react";
+import AddComments from "./AddComments";
+import CommentVotes from "./CommentVotes";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    api.getComments(review_id).then((comment) => {
-      console.log(comment);
-      setComments(comment.comments);
-      setIsLoading(false);
-    });
-  }, [setComments]);
+    api
+      .getComments(review_id)
+      .then((comment) => {
+        setIsLoading(true);
+        setComments(comment.comments);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.response) {
+          setErr("status:" + err.response.status);
+        } else if (err.request) {
+          setErr(err.request);
+        } else {
+          setErr("Error", err.message);
+        }
+      });
+  }, [comments]);
 
-  if (isLoading) return <p>...Loading...</p>;
-
+  if (isLoading === true) {
+    return (
+      <>
+        <p>No comments at present, be the first...</p>
+        <AddComments
+          review_id={review_id}
+          comments={comments}
+          setComments={setComments}
+        />
+      </>
+    );
+  }
   return (
-    <div className="comment_list">
-      <h4>A collection of Comments</h4>
-      {comments.map((comment) => {
-        return (
-          <li key={comment.comment_id} className="Comment_Card">
-            <div className="comment_info">
-              <p>Comment posted: {comment.body}</p>
-              <div>
-                <p>Posted by: {comment.author}</p>
+    <>
+      <AddComments
+        review_id={review_id}
+        comments={comments}
+        setComments={setComments}
+      />
+      <div className="comment_list">
+        <h4>A collection of Comments</h4>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.comment_id} className="Comment_Card">
+              <div className="comment_info">
+                <p>Comment posted: {comment.body}</p>
+                <div>
+                  <p>Posted by: {comment.author}</p>
+                </div>
+                <p>at {formatDate(comment.created_at)}</p>
               </div>
-              <p>at {comment.created_at}</p>
-            </div>
-            <p>Votes: {comment.votes}</p>
-          </li>
-        );
-      })}
-    </div>
+              <CommentVotes comment={comment} />
+            </li>
+          );
+        })}
+      </div>
+    </>
   );
 };
 export default Comments;

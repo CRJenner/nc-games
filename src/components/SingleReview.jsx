@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { formatDate } from "../api";
 import { useEffect, useState } from "react";
 
 import Votes from "./Votes";
@@ -16,7 +17,6 @@ const SingleReview = () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setReviews(response.review);
         setIsLoading(false);
       });
@@ -36,7 +36,7 @@ const SingleReview = () => {
         <p>Comment count: {review.comment_count}</p>
         <p>Comments: {review.review_body}</p>
         <p>Posted by {review.owner} </p>
-        <p>{review.created_at}</p>
+        <p>{formatDate(review.created_at)}</p>
         <Votes review={review} />
       </div>
       <Comments review_id={review_id} />
