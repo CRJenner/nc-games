@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as api from "../api";
 
 const CommentVotes = ({ comment }) => {
   const votes = comment.votes;
   const comment_id = comment.comment_id;
 
-  const [voteIncrement, setVotes] = useState(0);
+  const [voteIncrement, setVotesIncrement] = useState(0);
+  const [err, setErr] = useState(null);
+
+  useEffect(() => {
+    api.patchCommentVotes().then((countVotes) => {
+      setVotesIncrement(countVotes);
+    });
+  }, []);
 
   const HandleIncrement = () => {
-    setVotes((currentVotes) => currentVotes + 1);
-    api.patchCommentVotes(comment_id, 1);
+    setVotesIncrement((currentVotes) => currentVotes + 1);
   };
 
   const HandleDecrement = () => {
-    setVotes((currentVotes) => currentVotes - 1);
-    api.patchCommentVotes(comment_id, -1);
+    setVotesIncrement((currentVotes) => currentVotes - 1);
   };
 
   return (
