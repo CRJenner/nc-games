@@ -10,6 +10,7 @@ const AddComments = ({ review_id, comments, setComments }) => {
     event.preventDefault();
     event.currentTarget.disabled = true;
     console.log("button clicked");
+
     const newCommentAdded = {
       author: user,
       body: input,
@@ -18,7 +19,9 @@ const AddComments = ({ review_id, comments, setComments }) => {
     };
     api.postComments(input, user, review_id);
     setInput("");
-    setComments([...comments, newCommentAdded]);
+    setComments((currentComments) => {
+      return [newCommentAdded, ...currentComments];
+    });
   };
 
   return (
