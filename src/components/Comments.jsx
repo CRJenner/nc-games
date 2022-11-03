@@ -2,6 +2,7 @@ import * as api from "../api";
 import { formatDate } from "../api";
 import { useState, useEffect } from "react";
 import AddComments from "./AddComments";
+import CommentVotes from "./CommentVotes";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
@@ -37,7 +38,7 @@ const Comments = ({ review_id }) => {
                 </div>
                 <p>at {formatDate(comment.created_at)}</p>
               </div>
-              <p>Votes: {comment.votes}</p>
+              <CommentVotes comment={comment} />
             </li>
           );
         })}

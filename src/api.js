@@ -45,6 +45,10 @@ export const postComments = async (commentBody, user, review_id) => {
       return data;
     });
 };
+
+export const patchCommentVotes = async (comment_id, val) => {
+  await axios.patch(`${BASE_URL}/reviews/${comment_id}`, { inc_votes: val });
+};
 export const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US");
 };
