@@ -28,10 +28,11 @@ const Comments = ({ review_id }) => {
       });
   }, [comments]);
 
-  if (isLoading === true) {
+  if (isLoading) return <p>Loading...</p>;
+  if (comments.length === 0) {
     return (
       <>
-        <p>No comments at present, be the first...</p>
+        <p>Be the first to comment!</p>
         <AddComments
           review_id={review_id}
           comments={comments}
@@ -40,6 +41,7 @@ const Comments = ({ review_id }) => {
       </>
     );
   }
+
   return (
     <>
       <AddComments
