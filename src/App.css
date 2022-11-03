@@ -4,6 +4,27 @@
   text-align: center;
   font-family: "Carter One", cursive;
 }
+
+.header {
+  font-size: x-large;
+  border-bottom: #282c34 solid 5px;
+}
+
+.navbar {
+  background-color: #282c34;
+}
+
+.navbar_links {
+  color: aliceblue;
+  margin: 10%;
+  text-decoration: none;
+}
+
+/* a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked */
+
 .review-button {
   font-family: "Carter One", cursive;
   font-size: large;
@@ -131,7 +152,7 @@
 }
 .Comment_Card {
   max-width: auto;
-  margin: 10%;
+  margin: 1%;
   padding: 10px;
   background-color: rgb(252, 203, 233);
   border-radius: 5pt;
