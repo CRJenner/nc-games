@@ -5,12 +5,11 @@ const AddComments = ({ review_id, comments, setComments }) => {
   const [input, setInput] = useState("");
 
   const user = "tickle122";
-  const handleChange = (event) => {
-    setInput(event.target.value);
-  };
 
   const handleAddComment = (event) => {
     event.preventDefault();
+    event.currentTarget.disabled = true;
+    console.log("button clicked");
     const newCommentAdded = {
       author: user,
       body: input,
@@ -28,10 +27,10 @@ const AddComments = ({ review_id, comments, setComments }) => {
         id="comment_body"
         type="text"
         value={input}
-        onChange={handleChange}
+        onChange={(event) => setInput(event.currentTarget.value)}
         placeholder="Type comment here"
       />
-      <button type="submit" className="submitButton">
+      <button disabled={!input} type="submit" className="submitButton">
         Add Comment
       </button>
     </form>
