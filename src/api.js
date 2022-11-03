@@ -35,4 +35,18 @@ export const getComments = async (review_id) => {
   return data;
 };
 
+export const postComments = async (commentBody, user, review_id) => {
+  return axios
+    .post(`${BASE_URL}/reviews/${review_id}/comments`, {
+      username: user,
+      body: commentBody,
+    })
+    .then(({ data }) => {
+      return data;
+    });
+};
+export const formatDate = (date) => {
+  return new Date(date).toLocaleString("en-US");
+};
+
 export { fetchUsers, fetchReviews };

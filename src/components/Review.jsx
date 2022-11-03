@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { formatDate } from "../api";
 import Votes from "./Votes";
 
 const Review = ({ review }) => {
@@ -20,7 +21,7 @@ const Review = ({ review }) => {
         <h2>{title}</h2>
         <p>Comments: {comment_count}</p>
         <p>Posted by {owner} </p>
-        <p>{created_at}</p>
+        <p>{formatDate(created_at)}</p>
       </div>
       <Votes review={review} />
 
