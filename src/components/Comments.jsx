@@ -7,18 +7,39 @@ import CommentVotes from "./CommentVotes";
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    setIsLoading(true);
-    api.getComments(review_id).then((comment) => {
-      console.log(comment);
-      setComments(comment.comments);
-      setIsLoading(false);
-    });
-  }, [setComments]);
+    api
+      .getComments(review_id)
+      .then((comment) => {
+        setIsLoading(true);
+        setComments(comment.comments);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.response) {
+          setErr("status:" + err.response.status);
+        } else if (err.request) {
+          setErr(err.request);
+        } else {
+          setErr("Error", err.message);
+        }
+      });
+  }, [comments]);
 
-  if (isLoading) return <p>...Loading...</p>;
-
+  if (isLoading === true) {
+    return (
+      <>
+        <p>No comments at present, be the first...</p>
+        <AddComments
+          review_id={review_id}
+          comments={comments}
+          setComments={setComments}
+        />
+      </>
+    );
+  }
   return (
     <>
       <AddComments

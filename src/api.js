@@ -43,6 +43,10 @@ export const postComments = async (commentBody, user, review_id) => {
     })
     .then(({ data }) => {
       return data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return err;
     });
 };
 
