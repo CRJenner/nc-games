@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 //import { useState } from "react";
 import Review from "./Review";
+import Sorting from "./Sorting";
 
 const CategoryReview = ({ reviews, setReviews }) => {
   const { category } = useParams();
@@ -19,6 +20,7 @@ const CategoryReview = ({ reviews, setReviews }) => {
   return (
     <div className="review-container">
       <h3> Showing all of the reviews that are related to {category}</h3>
+      <Sorting setReviews={setReviews} reviews={reviews} />
       <div className="review-list">
         {reviews.map((review) => {
           return <Review key={review.review_id} review={review} />;
