@@ -170,3 +170,25 @@ a:active - a link the moment it is clicked */
   justify-content: space-between;
   color: rgb(38, 10, 1);
 }
+
+.submitButton {
+  font-family: "Carter One", cursive;
+  font-size: large;
+  background-color: rgb(37, 2, 57);
+  color: white;
+  padding: 10px;
+  border-radius: 5pt;
+  margin-top: 20px;
+}
+#comment_body {
+  font-family: "Carter One", cursive;
+  font-size: large;
+  max-height: 200px;
+  display: inline-block;
+  width: 50%;
+  border: 3px solid;
+  padding: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+}
