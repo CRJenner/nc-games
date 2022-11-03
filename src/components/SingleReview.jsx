@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 const SingleReview = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,18 +25,21 @@ const SingleReview = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div className="review">
-      <h2>{review.title}</h2>
-      <img
-        src={review.review_img_url}
-        alt="image of review"
-        className="review_img"
-      />
-      <p>Comment count: {review.comment_count}</p>
-      <p>Comments: {review.review_body}</p>
-      <p>Posted by {review.owner} </p>
-      <p>{review.created_at}</p>
-      <Votes review={review} />
+    <div>
+      <div className="review">
+        <h2>{review.title}</h2>
+        <img
+          src={review.review_img_url}
+          alt="image of review"
+          className="review_img"
+        />
+        <p>Comment count: {review.comment_count}</p>
+        <p>Comments: {review.review_body}</p>
+        <p>Posted by {review.owner} </p>
+        <p>{review.created_at}</p>
+        <Votes review={review} />
+      </div>
+      <Comments review_id={review_id} />
     </div>
   );
 };

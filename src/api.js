@@ -30,4 +30,9 @@ export const patchVoteCounts = async (review_id, value) => {
   await axios.patch(`${BASE_URL}/reviews/${review_id}`, { inc_votes: value });
 };
 
+export const getComments = async (review_id) => {
+  const { data } = await axios.get(`${BASE_URL}/reviews/${review_id}/comments`);
+  return data;
+};
+
 export { fetchUsers, fetchReviews };
