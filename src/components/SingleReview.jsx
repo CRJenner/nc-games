@@ -17,7 +17,7 @@ const SingleReview = () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        setReviews(response.review);
+        setReviews(response);
         setIsLoading(false);
       });
   }, [setReviews]);

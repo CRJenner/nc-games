@@ -1,20 +1,20 @@
 import axios from "axios";
+const BASE_URL = `https://chloes-project-nc-games.herokuapp.com/api`;
+const api = axios.create({ baseURL: BASE_URL });
 
-function fetchUsers() {
-  return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
-    (response) => {
-      return response.json();
-    }
-  );
-}
+// function fetchUsers() {
+//   return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
+//     (response) => {
+//       return response.json();
+//     }
+//   );
+// }
 
-function fetchReviews() {
-  return fetch(
-    `https://chloes-project-nc-games.herokuapp.com/api/reviews`
-  ).then((response) => {
-    return response.json();
+export const fetchReviews = (sort_by) => {
+  return api.get("/reviews", { params: { sort_by } }).then(({ data }) => {
+    return data.reviews;
   });
-}
+};
 
 // function fetchCategories() {
 //   return fetch(
@@ -23,8 +23,6 @@ function fetchReviews() {
 //     return response.json();
 //   });
 // }
-
-const BASE_URL = `https://chloes-project-nc-games.herokuapp.com/api`;
 
 export const patchVoteCounts = async (review_id, value) => {
   await axios.patch(`${BASE_URL}/reviews/${review_id}`, { inc_votes: value });
@@ -53,4 +51,4 @@ export const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US");
 };
 
-export { fetchUsers, fetchReviews };
+//export { fetchUsers };
