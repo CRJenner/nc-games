@@ -11,7 +11,6 @@ const api = axios.create({ baseURL: BASE_URL });
 // }
 
 export const fetchReviews = (sort_by) => {
-  console.log(sort_by);
   return api.get("/reviews", { params: { sort_by } }).then(({ data }) => {
     return data.reviews;
   });
