@@ -1,24 +1,35 @@
 import { useEffect, useState } from "react";
-import { fetchReviews } from "../api";
+import * as api from "../api";
 import Review from "./Review";
 
 const Reviews = ({ reviews, setReviews }) => {
+  const [sortBy, setSortBy] = useState("created_at");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
 
-    fetchReviews().then(({ reviews }) => {
+    api.fetchReviews(sortBy).then((reviews) => {
       setReviews(reviews);
       setIsLoading(false);
     });
-  }, [setReviews]);
+  }, [sortBy]);
+  const handleSortBy = (event) => {
+    const { value } = event.target;
+    setSortBy(value);
+  };
 
   if (isLoading) return <p>...Loading...</p>;
 
   return (
     <div className="review-container">
       <h3>Showing all Reviews</h3>
+      <select name="sortBy" value={sortBy} onChange={handleSortBy}>
+        <option value="created_at">Date</option>
+
+        <option value="comment_count">Comment Count</option>
+        <option value="votes">Votes</option>
+      </select>
       <div className="review-list">
         {reviews.map((review) => {
           return <Review key={review.review_id} review={review} />;

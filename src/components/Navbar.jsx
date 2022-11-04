@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Sorting from "./Sorting";
 
 function Navbar() {
   return (

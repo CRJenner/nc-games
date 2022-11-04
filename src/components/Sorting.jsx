@@ -1,44 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as api from "../api";
 
-function Sorting({ reviews, setReviews }) {
-  const [order, setOrder] = useState("");
-  const [sortBy, setSortBy] = useState("");
+function Sorting() {
+  // const [order, setOrder] = useState("");
+  const [sortBy, setSortBy] = useState("created_at");
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    api.fetchReviews(sortBy).then((data) => {
+      console.log(data);
+      setReviews(data);
+    });
+  }, [sortBy]);
 
   const handleSortBy = (event) => {
-    event.preventDefault();
     const { value } = event.target;
     setSortBy(value);
   };
 
-  const handleOrder = (event) => {
-    event.preventDefault();
-    const { value } = event.target;
-    setOrder(value);
-  };
+  // const handleOrder = (event) => {
+  //   event.preventDefault();
+  //   const { value } = event.target;
+  //   setOrder(value);
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    api.fetchReviews(sortBy, order).then((data) => {
+    api.fetchReviews(sortBy).then((data) => {
       setReviews(data);
     });
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="sort-btns">
-        <select className="options" name="sortBy" onChange={handleSortBy}>
+      <main onSubmit={handleSubmit} className="Sort_button">
+        <select name="sortBy" value={sortBy} onChange={handleSortBy}>
           <option value="created_at">Date</option>
 
           <option value="comment_count">Comment Count</option>
           <option value="votes">Votes</option>
         </select>
-        <select className="options" name="order" onChange={handleOrder}>
-          <option value="DESC">Descending</option>
-          <option value="ASC">Ascending</option>
-        </select>
-        <button className="options button">SORT</button>
-      </form>
+
+        <button className="Sort button">SORT</button>
+      </main>
     </>
   );
 }
