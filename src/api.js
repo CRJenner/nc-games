@@ -47,6 +47,14 @@ export const postComments = (commentBody, user, review_id) => {
 export const patchCommentVotes = async (comment_id, value) => {
   await axios.patch(`${BASE_URL}/reviews/${comment_id}`, { inc_votes: value });
 };
+
+export const removeComment = (comment_id) => {
+  console.log(comment_id);
+  return axios.delete(`${BASE_URL}/comments/${comment_id}`).catch((err) => {
+    console.log(err);
+  });
+};
+
 export const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US");
 };

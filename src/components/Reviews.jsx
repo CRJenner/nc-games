@@ -24,9 +24,9 @@ const Reviews = ({ reviews, setReviews }) => {
   return (
     <div className="review-container">
       <h3>Showing all Reviews</h3>
+      <p>Select an option to sort by:</p>
       <select name="sortBy" value={sortBy} onChange={handleSortBy}>
         <option value="created_at">Date</option>
-
         <option value="comment_count">Comment Count</option>
         <option value="votes">Votes</option>
       </select>

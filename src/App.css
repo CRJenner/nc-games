@@ -192,3 +192,13 @@ a:active - a link the moment it is clicked */
   margin-right: 50px;
   margin-top: 50px;
 }
+
+.deleteButton {
+  font-family: "Carter One", cursive;
+  font-size: large;
+  background-color: rgb(37, 2, 57);
+  color: white;
+  padding: 10px;
+  border-radius: 5pt;
+  margin-top: 20px;
+}

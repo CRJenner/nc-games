@@ -13,6 +13,7 @@ import SingleReview from "./components/SingleReview";
 
 function App() {
   const [reviews, setReviews] = useState([]);
+  const [loggedInUser, setUser] = useState("tickle122");
 
   return (
     <BrowserRouter>
@@ -31,7 +32,11 @@ function App() {
               <CategoryReview setReviews={setReviews} reviews={reviews} />
             }
           />
-          <Route path="/reviews/:review_id" element={<SingleReview />} />
+          <Route
+            path="/reviews/:review_id"
+            element={<SingleReview />}
+            loggedInUser={loggedInUser}
+          />
         </Routes>
       </div>
     </BrowserRouter>
