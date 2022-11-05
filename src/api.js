@@ -2,13 +2,13 @@ import axios from "axios";
 const BASE_URL = `https://chloes-project-nc-games.herokuapp.com/api`;
 const api = axios.create({ baseURL: BASE_URL });
 
-// function fetchUsers() {
-//   return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
-//     (response) => {
-//       return response.json();
-//     }
-//   );
-// }
+function fetchUsers() {
+  return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
+    (response) => {
+      return response.json();
+    }
+  );
+}
 
 export const fetchReviews = (sort_by) => {
   return api.get("/reviews", { params: { sort_by } }).then(({ data }) => {
@@ -59,4 +59,4 @@ export const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US");
 };
 
-//export { fetchUsers };
+export { fetchUsers };
