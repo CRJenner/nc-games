@@ -57,9 +57,9 @@ const Comments = ({ review_id }) => {
             <li key={comment.comment_id} className="Comment_Card">
               <div className="comment_info">
                 <p>Comment posted: {comment.body}</p>
-                <div>
-                  <p>Posted by: {comment.author}</p>
-                </div>
+
+                <p>Posted by: {comment.author}</p>
+
                 <p>at {formatDate(comment.created_at)}</p>
               </div>
               <CommentVotes comment={comment} />

@@ -18,8 +18,14 @@
   color: aliceblue;
   margin: 10%;
   text-decoration: none;
+  padding: 1px;
 }
-
+.navbar_links_user {
+  color: aliceblue;
+  text-align: right;
+  margin: 3%;
+  text-decoration: none;
+}
 /* a:link - a normal, unvisited link
 a:visited - a link the user has visited
 a:hover - a link when the user mouses over it

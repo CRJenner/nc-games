@@ -24,6 +24,7 @@ const Users = () => {
         setLoading(false);
       });
   }, []);
+
   if (error) {
     return <p>Sorry please refresh, there is an error</p>;
   }
@@ -32,7 +33,8 @@ const Users = () => {
   }
 
   const handleChange = (event) => {
-    setLoggedIn(event.target.value);
+    console.log(event.target);
+    setLoggedIn(event.target);
   };
 
   return (

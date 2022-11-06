@@ -20,7 +20,6 @@ function App() {
     () => ({ loggedIn, setLoggedIn }),
     [loggedIn, setLoggedIn]
   );
-  console.log(loggedIn);
   return (
     <BrowserRouter>
       <div className="App">
@@ -32,10 +31,7 @@ function App() {
               path="/"
               element={<Reviews setReviews={setReviews} reviews={reviews} />}
             />
-            <Route
-              path="/users"
-              element={<Users loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
-            ></Route>
+            <Route path="/users" element={<Users />}></Route>
             <Route path="/categories" element={<AllCategories />} />
             <Route
               path="/categories/:category"
