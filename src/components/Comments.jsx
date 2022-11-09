@@ -8,26 +8,14 @@ import DeleteComment from "./DeleteComment";
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    api
-      .getComments(review_id)
-      .then((comment) => {
-        setIsLoading(true);
-        setComments(comment.comments);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        if (err.response) {
-          setErr("status:" + err.response.status);
-        } else if (err.request) {
-          setErr(err.request);
-        } else {
-          setErr("Error", err.message);
-        }
-      });
-  }, [comments]);
+    api.getComments(review_id).then((comment) => {
+      setIsLoading(true);
+      setComments(comment.comments);
+      setIsLoading(false);
+    });
+  }, [comments, review_id]);
 
   if (isLoading) return <p>Loading...</p>;
   if (comments.length === 0) {
