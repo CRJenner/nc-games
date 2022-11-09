@@ -13,7 +13,7 @@ const Reviews = ({ reviews, setReviews }) => {
       setReviews(reviews);
       setIsLoading(false);
     });
-  }, [sortBy]);
+  }, [sortBy, setReviews]);
   const handleSortBy = (event) => {
     const { value } = event.target;
     setSortBy(value);

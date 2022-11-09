@@ -20,7 +20,7 @@ const SingleReview = () => {
         setReviews(response.review);
         setIsLoading(false);
       });
-  }, [setReviews]);
+  }, [setReviews, review_id]);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -30,7 +30,7 @@ const SingleReview = () => {
         <h2>{review.title}</h2>
         <img
           src={review.review_img_url}
-          alt="image of review"
+          alt="game review"
           className="review_img"
         />
         <p>Comment count: {review.comment_count}</p>

@@ -14,11 +14,11 @@ const CategoryReview = ({ reviews, setReviews }) => {
       .then(({ reviews }) => {
         setReviews(reviews);
       });
-  }, []);
+  }, [setReviews, category]);
 
   return (
     <div className="review-container">
-      <h3> Showing all of the reviews that are related to {category}</h3>
+      ,<h3> Showing all of the reviews that are related to {category}</h3>
       <div className="review-list">
         {reviews.map((review) => {
           return <Review key={review.review_id} review={review} />;
