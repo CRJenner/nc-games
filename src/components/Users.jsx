@@ -1,20 +1,41 @@
-import { useEffect, useState } from "react";
-import { fetchUsers } from "../api";
+import { useEffect, useState, useContext } from "react";
+//import { fetchUsers } from "../api";
 import { Link } from "react-router-dom";
+import { UserContext } from "./UserContext";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    fetchUsers().then((users) => {
-      setUsers(users.users);
-      //console.log(profile);
-    });
-  }, [users]);
+  const initialState = "jessjelly";
+  const [users, setUsers] = useState(initialState);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { setLoggedIn } = useContext(UserContext);
 
-  function handleChange() {
-    console.log(users);
-    setUsers(users.users);
+  useEffect(() => {
+    fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`)
+      .then((response) => response.json())
+      .then(({ users }) => {
+        setUsers(users);
+        setError(null);
+      })
+      .catch((error) => {
+        setError({ error });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (error) {
+    return <p>Sorry please refresh, there is an error</p>;
   }
+  if (loading) {
+    return <p>...Loading ...</p>;
+  }
+
+  const handleChange = (event) => {
+    console.log(event.target);
+    setLoggedIn(event.target);
+  };
 
   return (
     <div className="grid-container">

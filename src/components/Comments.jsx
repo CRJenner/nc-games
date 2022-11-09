@@ -3,30 +3,19 @@ import { formatDate } from "../api";
 import { useState, useEffect } from "react";
 import AddComments from "./AddComments";
 import CommentVotes from "./CommentVotes";
+import DeleteComment from "./DeleteComment";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    api
-      .getComments(review_id)
-      .then((comment) => {
-        setIsLoading(true);
-        setComments(comment.comments);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        if (err.response) {
-          setErr("status:" + err.response.status);
-        } else if (err.request) {
-          setErr(err.request);
-        } else {
-          setErr("Error", err.message);
-        }
-      });
-  }, [comments]);
+    api.getComments(review_id).then((comment) => {
+      setIsLoading(true);
+      setComments(comment.comments);
+      setIsLoading(false);
+    });
+  }, [comments, review_id]);
 
   if (isLoading) return <p>Loading...</p>;
   if (comments.length === 0) {
@@ -56,12 +45,17 @@ const Comments = ({ review_id }) => {
             <li key={comment.comment_id} className="Comment_Card">
               <div className="comment_info">
                 <p>Comment posted: {comment.body}</p>
-                <div>
-                  <p>Posted by: {comment.author}</p>
-                </div>
+
+                <p>Posted by: {comment.author}</p>
+
                 <p>at {formatDate(comment.created_at)}</p>
               </div>
               <CommentVotes comment={comment} />
+              <DeleteComment
+                id={comment.comment_id}
+                review_id={review_id}
+                comments={comments}
+              />
             </li>
           );
         })}
