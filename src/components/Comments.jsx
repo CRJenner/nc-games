@@ -6,19 +6,27 @@ import CommentVotes from "./CommentVotes";
 import DeleteComment from "./DeleteComment";
 
 const Comments = ({ review_id }) => {
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([]);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    api.getComments(review_id).then((comment) => {
-      setIsLoading(true);
-      setComments(comment.comments);
-      setIsLoading(false);
-    });
+    api
+      .getComments(review_id)
+      .then((comment) => {
+        setIsLoading(true);
+        setComments(comment.comments);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.log(err);
+        setError(err);
+      });
   }, [comments, review_id]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (comments.length === 0) {
+  if (error)
     return (
       <>
         <p>Be the first to comment!</p>
@@ -29,7 +37,6 @@ const Comments = ({ review_id }) => {
         />
       </>
     );
-  }
 
   return (
     <>
