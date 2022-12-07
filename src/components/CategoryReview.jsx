@@ -8,7 +8,7 @@ const CategoryReview = ({ reviews, setReviews }) => {
 
   useEffect(() => {
     fetch(
-      `https://encouraging-pear-buckle.cyclic.app/api/reviews?category=${category}`
+      `https://chloe-jenner-nc-games-be.cyclic.app/api/reviews?category=${category}`
     )
       .then((response) => response.json())
       .then(({ reviews }) => {

@@ -11,7 +11,7 @@ const Users = () => {
   const { setLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`https://encouraging-pear-buckle.cyclic.app/api/users`)
+    fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/users`)
       .then((response) => response.json())
       .then(({ users }) => {
         setUsers(users);

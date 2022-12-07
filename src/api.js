@@ -1,9 +1,9 @@
 import axios from "axios";
-const BASE_URL = `https://encouraging-pear-buckle.cyclic.app/api`;
+const BASE_URL = `https://chloe-jenner-nc-games-be.cyclic.app/api`;
 const api = axios.create({ baseURL: BASE_URL });
 
 function fetchUsers() {
-  return fetch(`https://encouraging-pear-buckle.cyclic.app/api/users`).then(
+  return fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/users`).then(
     (response) => {
       return response.json();
     }
@@ -18,7 +18,7 @@ export const fetchReviews = (sort_by) => {
 
 // function fetchCategories() {
 //   return fetch(
-//     `https://chloes-project-nc-games.herokuapp.com/api/categories`
+//     `https://chloe-jenner-nc-games-be.cyclic.app/api/categories`
 //   ).then((response) => {
 //     return response.json();
 //   });

@@ -8,7 +8,7 @@ function AllCategories() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://encouraging-pear-buckle.cyclic.app/api/categories`)
+    fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/categories`)
       .then((response) => response.json())
       .then(({ category }) => {
         setCategories(category);
