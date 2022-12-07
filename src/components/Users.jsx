@@ -11,7 +11,7 @@ const Users = () => {
   const { setLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`)
+    fetch(`https://encouraging-pear-buckle.cyclic.app/api/users`)
       .then((response) => response.json())
       .then(({ users }) => {
         setUsers(users);

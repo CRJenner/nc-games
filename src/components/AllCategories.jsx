@@ -8,7 +8,7 @@ function AllCategories() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://chloes-project-nc-games.herokuapp.com/api/categories`)
+    fetch(`https://encouraging-pear-buckle.cyclic.app/api/categories`)
       .then((response) => response.json())
       .then(({ category }) => {
         setCategories(category);

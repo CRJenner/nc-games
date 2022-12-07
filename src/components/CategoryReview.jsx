@@ -8,7 +8,7 @@ const CategoryReview = ({ reviews, setReviews }) => {
 
   useEffect(() => {
     fetch(
-      `https://chloes-project-nc-games.herokuapp.com/api/reviews?category=${category}`
+      `https://encouraging-pear-buckle.cyclic.app/api/reviews?category=${category}`
     )
       .then((response) => response.json())
       .then(({ reviews }) => {

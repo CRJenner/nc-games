@@ -13,7 +13,7 @@ const SingleReview = () => {
   useEffect(() => {
     setIsLoading(true);
     fetch(
-      `https://chloes-project-nc-games.herokuapp.com/api/reviews/${review_id}`
+      `https://encouraging-pear-buckle.cyclic.app/api/reviews/${review_id}`
     )
       .then((response) => response.json())
       .then((response) => {

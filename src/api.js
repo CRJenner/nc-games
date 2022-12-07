@@ -1,9 +1,9 @@
 import axios from "axios";
-const BASE_URL = `https://chloes-project-nc-games.herokuapp.com/api`;
+const BASE_URL = `https://encouraging-pear-buckle.cyclic.app/api`;
 const api = axios.create({ baseURL: BASE_URL });
 
 function fetchUsers() {
-  return fetch(`https://chloes-project-nc-games.herokuapp.com/api/users`).then(
+  return fetch(`https://encouraging-pear-buckle.cyclic.app/api/users`).then(
     (response) => {
       return response.json();
     }
