@@ -20,7 +20,6 @@ const Comments = ({ review_id }) => {
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err);
         setError(err);
       });
   }, [comments, review_id]);
