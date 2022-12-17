@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as api from "../api";
 import Review from "./Review";
+import ScrollToTop from "./ScrollToTop";
 
 const Reviews = ({ reviews, setReviews }) => {
   const [sortBy, setSortBy] = useState("created_at");
@@ -35,6 +36,7 @@ const Reviews = ({ reviews, setReviews }) => {
           return <Review key={review.review_id} review={review} />;
         })}
       </div>
+      <ScrollToTop/>
     </div>
   );
 };

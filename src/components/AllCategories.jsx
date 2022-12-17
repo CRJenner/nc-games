@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Category from "./Category";
+import ScrollToTop from "./ScrollToTop"
 
 function AllCategories() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ function AllCategories() {
           return <Category key={category.slug} category={category} />;
         })}
       </div>
+      <ScrollToTop/>
     </div>
   );
 }

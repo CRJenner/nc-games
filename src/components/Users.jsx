@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 const Users = () => {
-  const initialState = "jessjelly";
+  // const initialState = "jessjelly";
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -42,7 +42,7 @@ const Users = () => {
       {users.map((user) => {
         return (
           <Link to="/">
-            <div onClick={handleChange} className="grid-item">
+            <div key={user} onClick={handleChange} className="grid-item">
               <h2>{user.username}</h2>
               <img
                 src={user.avatar_url}
