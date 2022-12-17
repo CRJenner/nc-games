@@ -21,6 +21,7 @@ function AllCategories() {
 
   return (
     <div className="category-container">
+      <h2>Scroll down to see the options</h2>
       <div className="category-list">
         {categories.map((category) => {
           return <Category key={category.slug} category={category} />;

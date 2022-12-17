@@ -37,7 +37,7 @@ const handleClick = () => {
     <IconButton
     aria-label="scroll to top" 
     icon={<ArrowUpIcon/>}
-    size="lg"
+    size="100%"
     colorScheme="purple"
     variant="ouline"
     border="5px solid"
