@@ -34,12 +34,11 @@ const handleClick = () => {
 }
 
     return(<>
-    <IconButton
+    <IconButton className="scrollButton"
     aria-label="scroll to top" 
     icon={<ArrowUpIcon/>}
-    size="100%"
     colorScheme="purple"
-    variant="ouline"
+    variant="outline"
     border="5px solid"
     ref={scrollButton}
     onClick={handleClick}

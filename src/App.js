@@ -4,13 +4,13 @@ import { useState, useMemo } from "react";
 import { UserContext } from "./components/UserContext";
 
 import Header from "./components/Header";
-// import Welcome from "./components/Welcome";
 import Users from "./components/Users";
 import Reviews from "./components/Reviews";
 import Navbar from "./components/Navbar";
 import AllCategories from "./components/AllCategories";
 import CategoryReview from "./components/CategoryReview";
 import SingleReview from "./components/SingleReview";
+import Welcome from "./components/Welcome"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState("Guest");
@@ -29,6 +29,10 @@ function App() {
           <Routes>
             <Route
               path="/"
+              element={<Welcome/>}
+            />
+            <Route
+              path="/reviews"
               element={<Reviews setReviews={setReviews} reviews={reviews} />}
             />
             <Route path="/users" element={<Users />}></Route>
