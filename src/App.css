@@ -84,8 +84,16 @@ a:active - a link the moment it is clicked */
 }
 
 .grid-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: auto auto auto;
+  gap: 1rem;
+} 
+@media (min-width: 600px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .grid-container { grid-template-columns: repeat(3, 1fr); }
 }
 .grid-item {
   box-sizing: border-box;
