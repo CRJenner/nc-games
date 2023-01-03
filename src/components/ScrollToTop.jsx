@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { IconButton } from "@chakra-ui/react";
 import {ArrowUpIcon} from "@chakra-ui/icons";
-import { gsap, ScrollTrigger } from "gsap/all";
+import { gsap } from "gsap/all";
 
 function ScrollToTop(){
 const [isVisible, setIsVisible] = useState(false)
