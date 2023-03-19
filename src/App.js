@@ -1,7 +1,6 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useMemo } from "react";
-import { UserContext } from "./components/UserContext";
+import { Routes, Route, Link } from "react-router-dom";
+import { useContext, useState } from "react";
 
 import Header from "./components/Header";
 import Users from "./components/Users";
@@ -11,21 +10,18 @@ import AllCategories from "./components/AllCategories";
 import CategoryReview from "./components/CategoryReview";
 import SingleReview from "./components/SingleReview";
 import Welcome from "./components/Welcome"
+import { UserContext } from "./contexts/Users";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState("Guest");
+  const {user} = useContext(UserContext)
+  console.log(user)
   const [reviews, setReviews] = useState([]);
-  //const [loggedInUser, setser] = useState("tickle122");
-  const value = useMemo(
-    () => ({ loggedIn, setLoggedIn }),
-    [loggedIn, setLoggedIn]
-  );
+  
   return (
-    <BrowserRouter>
       <div className="App">
         <Navbar />
+        <Link to='/users'><h2>logged in as: {user.username}</h2></Link>
         <Header />
-        <UserContext.Provider value={value}>
           <Routes>
             <Route
               path="/"
@@ -45,9 +41,7 @@ function App() {
             />
             <Route path="/reviews/:review_id" element={<SingleReview />} />
           </Routes>
-        </UserContext.Provider>
       </div>
-    </BrowserRouter>
   );
 }
 

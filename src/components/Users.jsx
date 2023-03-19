@@ -1,19 +1,18 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, } from "react";
 //import { fetchUsers } from "../api";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserContext";
 
 const Users = () => {
   // const initialState = "jessjelly";
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { setLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
     fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/users`)
       .then((response) => response.json())
       .then(({ users }) => {
+        console.log(users)
         setUsers(users);
         setError(null);
       })
@@ -32,8 +31,7 @@ const Users = () => {
     return <p>...Loading ...</p>;
   }
 
-  const handleChange = (event) => {
-    setLoggedIn(event.target);
+  const handleChange = () => {
     setUsers(users)
   };
 
