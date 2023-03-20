@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Category = ({ category }) => {
+const CategoryCard = ({ category }) => {
   const { slug, description } = category;
   return (
     <Link to={`/categories/${slug}`}>
@@ -14,4 +14,4 @@ const Category = ({ category }) => {
   );
 };
 
-export default Category;
+export default CategoryCard;

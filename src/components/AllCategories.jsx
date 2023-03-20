@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import Category from "./Category";
-import ScrollToTop from "./ScrollToTop"
+import CategoryCard from "./CategoryCard";
 
 function AllCategories() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,10 +23,9 @@ function AllCategories() {
       <h2>Scroll down to see the options</h2>
       <div className="category-list">
         {categories.map((category) => {
-          return <Category key={category.slug} category={category} />;
+          return <CategoryCard key={category.slug} category={category} />;
         })}
       </div>
-      <ScrollToTop/>
     </div>
   );
 }

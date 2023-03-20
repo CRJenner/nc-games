@@ -14,7 +14,6 @@ import { UserContext } from "./contexts/Users";
 
 function App() {
   const {user} = useContext(UserContext)
-  console.log(user)
   const [reviews, setReviews] = useState([]);
   
   return (
