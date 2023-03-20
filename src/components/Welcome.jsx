@@ -1,66 +1,22 @@
-import { useEffect, useState, useContext } from "react";
-//import { fetchUsers } from "../api";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserContext";
-
 const Welcome = () => {
-
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { setLoggedIn } = useContext(UserContext);
-
-  useEffect(() => {
-    fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/users`)
-      .then((response) => response.json())
-      .then(({ users }) => {
-        setUsers(users);
-        setError(null);
-      })
-      .catch((error) => {
-        setError({ error });
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
-  if (error) {
-    return <p>Sorry please refresh, there is an error</p>;
-  }
-  if (loading) {
-    return <p>...Loading ...</p>;
-  }
-
-  const handleChange = (event) => {
-    setLoggedIn(event.target);
-    setUsers(users)
-  };
-
   return (
     <div>
-    <h2>Select your avatar user below:</h2>
-  
-    <div className="grid-container">
-      {users.map((user) => {
-        return (
-          <Link to="/reviews">
-            <div key={user} onClick={handleChange} className="grid-item">
-              <h2>{user.username}</h2>
-              <img
-                src={user.avatar_url}
-                alt="profile avatar"
-                width="100"
-                height="100"
-              />
-            </div>
-            
-          </Link>
-        );
-      })}
+      <h2>Welcome to THE place where all your favourite games are reviewed.</h2>
+    <p> For all your board game reviews from traditional to newer models</p>
+    <p>Pick your place to be below:</p>
+    <div >
+    <Link to="/users">
+    <button  ><img className="loginButton"src={'https://cdn-icons-png.flaticon.com/512/5087/5087579.png'} alt="to go to users" /></button>
+    </Link>
+    <Link to="/reviews">
+    <button  ><img className="loginButton"src={'https://beautywithinn.com/wp-content/uploads/2019/03/7e4838c4-3643-4d2d-9b33-69154b1b9b51.jpg'} alt="to go to reviews" /></button>
+    </Link>
+    <Link to="/categories">
+    <button  ><img className="loginButton"src={'https://www.shutterstock.com/image-photo/category-word-written-on-wood-260nw-1336568840.jpg'} alt="to go to categories" /></button>
+    </Link>
     </div>
-    </div>
-  );
+  </div>)
 };
 
 

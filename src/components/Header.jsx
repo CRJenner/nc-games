@@ -1,8 +1,7 @@
 const Header = () => {
   return (
     <div className="header">
-      <h1>Welcome to THE games reviews</h1>
-    <p> For all your board game reviews from traditional to newer models</p>
+      <h1>The Game Of Reviews!</h1>
     </div>
   );
 };

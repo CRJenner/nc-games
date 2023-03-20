@@ -9,6 +9,10 @@
   font-size: x-large;
   border-bottom: #282c34 solid 5px;
 }
+.loginButton{
+  width: 100px;
+  height: 100px;
+}
 
 .navbar {
   background-color: #282c34;
