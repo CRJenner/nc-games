@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../api";
 import Votes from "./Votes";
 
-const Review = ({ review }) => {
+const ReviewCard = ({ review }) => {
   const {
     //designer,
     owner,
@@ -32,4 +32,4 @@ const Review = ({ review }) => {
   );
 };
 
-export default Review;
+export default ReviewCard;

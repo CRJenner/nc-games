@@ -2,13 +2,15 @@ import axios from "axios";
 const BASE_URL = `https://chloe-jenner-nc-games-be.cyclic.app/api`;
 const api = axios.create({ baseURL: BASE_URL });
 
-function fetchUsers() {
-  return fetch(`https://chloe-jenner-nc-games-be.cyclic.app/api/users`).then(
-    (response) => {
-      return response.json();
-    }
-  );
+
+
+export const fetchUsers = () => {
+  return api.get(`/users`).then(({data}) => {
+    console.log(data)
+      return data.users
+  })
 }
+
 
 export const fetchReviews = (sort_by) => {
   return api.get("/reviews", { params: { sort_by } }).then(({ data }) => {
@@ -59,4 +61,4 @@ export const formatDate = (date) => {
   return new Date(date).toLocaleString("en-US");
 };
 
-export { fetchUsers };
+

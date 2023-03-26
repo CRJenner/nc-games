@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import * as api from "../api";
-import Review from "./Review";
-import ScrollToTop from "./ScrollToTop";
+import ReviewCard from "./ReviewCard";
 
 const Reviews = ({ reviews, setReviews }) => {
   const [sortBy, setSortBy] = useState("created_at");
@@ -33,10 +32,9 @@ const Reviews = ({ reviews, setReviews }) => {
       </select>
       <div className="review-list">
         {reviews.map((review) => {
-          return <Review key={review.review_id} review={review} />;
+          return <ReviewCard key={review.review_id} review={review} />;
         })}
       </div>
-      <ScrollToTop/>
     </div>
   );
 };
