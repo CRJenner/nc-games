@@ -12,6 +12,9 @@ function Navbar( ) {
         <Link to="/categories" className="navbar_links">
           Categories
         </Link>
+        <Link to="/reviews" className="navbar_links">
+          All reviews
+        </Link>
        
       </nav>
     </div>
